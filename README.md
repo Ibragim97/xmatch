@@ -1,10 +1,10 @@
-### xmatch
+## xmatch
 Web-app for NU students
 
 
-## BestMatch
+### BestMatch
 Extended idea of Zuckerberg's FaceMash for local students
 
 
-## ScheduleMatch
+### ScheduleMatch
 Generates semester schedules for students by parsing data from university's website
