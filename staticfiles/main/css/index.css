@@ -1,0 +1,93 @@
+body {
+	font-size: 40px;
+
+}
+.app1 {
+	margin: 0px 200px 0px 0px;
+}
+.app2 {
+	margin: 0px 0px 0px -150px;
+}
+
+table {
+	margin: 0px auto;
+}
+
+td {
+	vertical-align: top;
+	padding: 60px;
+}
+
+.logo {
+	margin-top: -50px;
+	height: 200px;
+}
+
+.logoBestMatch {
+	border-radius: 15px;	
+}
+
+.logoBestMatch h2 {
+	
+}
+
+.logoBestMatch a {
+	text-decoration: none
+}
+
+.logoSchedule a {
+	text-decoration: none
+}
+
+.logoBestMatch .symbol {
+	color: black;
+}
+
+.logoBestMatch .part1 {
+
+	color: #2893ff;
+	font-family: "Open Sans";
+}
+.logoBestMatch .part2 {
+	color: #ea072d;
+	font-family: "Quicksand";
+}
+
+
+
+.logoSchedule {
+	text-align: center;
+}
+
+.logoSchedule .part1 {
+	color: #18bc26;
+	font-family: "Raleway";
+}
+
+.logoSchedule .part2 {
+	color: #576663;
+	font-family: "Droid Serif";	
+}
+
+.logoSchedule .glyphicon.glyphicon-th {	
+	color: #bed8d4;
+}
+
+
+.logoFood {
+	color: #939288;
+}
+
+.logoFood a {
+	text-decoration: none;
+	color: #939288;
+}
+.logoFood a:hover {
+	color: #A3A297;
+
+}
+
+.logoFood p{
+	text-align: center;
+	font-size: 17px;
+}

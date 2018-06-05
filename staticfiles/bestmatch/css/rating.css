@@ -1,0 +1,55 @@
+.photo  {
+	margin: -30px 0px 0px 0px;
+}
+
+img {
+
+	border: 1px #fcdbdd solid;
+    height: 29em;
+}
+
+.custom-heart {
+    font-size: 3.5em;
+    color: red;
+}
+.footer {
+	margin: 20px 0px 0px 0px;
+	padding: 1rem;
+	background-color: #efefef;
+	text-align: center;
+}
+
+@media(max-width:600px) {
+
+	img {
+		height: 25em;
+		margin-bottom: -1.5em;
+	}
+	.logo {
+		margin: 0em;
+	}
+	.logo .part1 {
+		font-size: 0.7em;
+	}
+	.logo .symbol {
+		color: black;
+		font-size: 0.7em;
+	}
+	.logo .part2 {
+		font-size: 0.7em;
+	}
+	.survey-builder.container {
+		padding: 0em;
+		margin: 0px;
+	}
+
+	.custom-heart {
+		font-size: 2.3em;
+	}
+	.person {
+		margin-top: 3.2em;
+	}
+	.person_name {
+		font-size: 2em;
+	}
+}

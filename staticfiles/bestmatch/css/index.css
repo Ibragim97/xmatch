@@ -1,0 +1,52 @@
+.header_text {
+	text-align: center
+}
+
+form {
+	margin: 100px 200px 0px 200px;
+	padding: 0px;
+	vertical-align: text-top;
+}
+
+.button {
+	margin: 0px;
+	background: none;
+	border: none;
+	
+}
+
+#LeftPanel {
+	margin: 0px 0px 0px 14%;
+	float: left;
+}
+
+#RightPanel {
+	margin: 0px 0px 0px 0px;
+
+}
+
+img {
+	width: 17em;
+}
+
+@media(max-width:600px) { 
+	.logo {
+		margin: 0px;
+
+	}
+	.header_text {
+		margin-top: 1em;
+		margin-bottom:  1em;
+	}
+	form {
+		margin: 0px;
+	}
+	#LeftPanel {
+		margin: 0px;
+	}
+	img {
+		width: 10em;
+	}
+
+}
+

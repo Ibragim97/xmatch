@@ -1,0 +1,103 @@
+{% extends 'schedule/base.html' %}
+{% load staticfiles %}
+
+{% block styles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'schedule/css/table.css' %}">
+{% endblock %}
+
+{% block scripts %}
+	<script>
+		var schedules = [];
+		var size = {{ size }};
+		var hashcode = {{ hashcode }};
+		$(function() {
+			{% for table in tables %}
+				var htmlTable = '<table>' +					
+				'<tr>'									+
+					'<th width="90px"> Abbr</th>'		+
+					'<th width="250px"> Title</th>'		+
+					'<th class="section"> S </th>'			+
+					'<th class="credits"> Cr(US) </th>'	+
+					'<th class="days"> Days </th>'		+
+					'<th class="time"> Time </th>'		+
+					'<th width="100px"> Faculty </th>'	+
+					'<th width="100xp"> Room </th>'		+
+				'</tr>';
+
+				{% for inst in table %}
+					htmlTable += "<tr>";
+					htmlTable += "<td>{{ inst.subject.abbr }}</td>";
+					htmlTable += "<td>{{ inst.subject.title }}</td>";
+					htmlTable += "<td class='section'>{{ inst.section }}</td>";
+					htmlTable += '<td class="credits">{{ inst.subject.credits }} </td>';
+					htmlTable += '<td class="days">{{ inst.days }} </td>';
+					htmlTable += '<td class="time">{{ inst.get_time }} </td>';
+					htmlTable += "<td>{{ inst.faculty }}</td>";
+					htmlTable += "<td>{{ inst.room }}</td>";
+					htmlTable += "</tr>";
+				{% endfor %}
+				htmlTable += '<table>'
+				schedules.push(htmlTable);
+			{% endfor %}
+		});
+		$(document).ready(function() {
+			$("#schedule").html(schedules[0]);
+			$("#saveBtn").attr("href", "{% url 'schedule:download' hashcode %}?page=1");				
+			
+			$("#prevBtn").click(function() {
+				page = parseInt($('#page').text());
+				if(page > 1) {
+					page -= 1;
+					$('#page').text(page);
+					$("#schedule").html(schedules[page-1]);
+					$("#saveBtn").attr("href", "http://www.google.com/");
+					$("#saveBtn").attr("href", "{% url 'schedule:download' hashcode %}?page=" + page);				
+				}
+
+				
+			});
+
+			$("#nextBtn").click(function() {
+				page = parseInt($('#page').text());
+				if(page < size) {
+					page += 1;
+					$('#page').text(page);
+					$("#schedule").html(schedules[page-1]);
+					$("#saveBtn").attr("href", "{% url 'schedule:download' hashcode %}?page=" + page);				
+				}
+			});
+
+			$("#saveBtn").click(function() {
+				page = parseInt($('#page').text()) - 1;
+			});
+
+
+		});
+	</script>
+
+{% endblock %}
+
+{% block content %}
+
+<ul class="pager">
+	<p>Table: <span id="page">1</span> out of  {{size}}</p>
+    <li><a id="prevBtn" class="pagerBtn">Previous</a></li>
+    <li><a id="nextBtn" class="pagerBtn">Next</a></li>
+</ul>
+
+{% if size %}
+<table id="schedule">
+</table>
+{% else %}
+<center>
+	<h3> Sorry, can't generate schedule with given subjects.</h3>
+	 <h3>Try to remove some subjects</h3>
+</center>
+{% endif%}
+
+<ul class="pager">
+	<li><a href="" id="saveBtn"> Download </a></li>
+</ul>
+
+
+{% endblock %}

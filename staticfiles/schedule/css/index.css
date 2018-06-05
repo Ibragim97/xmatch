@@ -1,0 +1,51 @@
+body {
+	
+}
+
+
+.titleText {
+	text-align: center;
+	font-size: 20px;
+	margin: 40px 0px 30px 0px;
+}
+
+form {
+
+}
+
+table {
+	margin: 0 auto;
+}
+
+th {
+	text-align: center;
+}
+
+button {
+	font-weight: bold;
+	font-size: 17px;
+	width: 120px;
+	color: white;
+	background-color: #0dba3e;
+	border: 1px #576663 solid;
+	border-radius: 6px;
+	margin: 20px;
+}
+
+.abbr {
+	width: 90px;
+}
+
+.title {
+	width: 250px;
+}
+.credits {
+	width: 40px;
+}
+.ui-autocomplete {
+	max-width: 300px;
+    max-height: 300px;
+    overflow-y: auto;   /* prevent horizontal scrollbar */
+    overflow-x: hidden; /* add padding to account for vertical scrollbar */
+    z-index:1000 !important;
+}

@@ -1,0 +1,61 @@
+{% load static %}
+
+<head>
+	<title> BestMatch</title>
+  	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Quicksand">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link href="{% static 'bestmatch/css/style.css'%}" rel="stylesheet">
+    <link href="{% static 'bestmatch/css/top.css'%}" rel="stylesheet">
+
+
+    <!-- google ads -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-5773214417538561",
+        enable_page_level_ads: true
+      });
+    </script>   
+
+</head>
+
+
+<body>
+
+    <div class="logo">
+      <a href="/">
+      <h2><span class="part1"> Best</span><span class="symbol">&#9829;</span><span class="part2">Match </span></h2>
+      </a>
+    </div>
+
+
+	<h1 class="top"> Top NU &#9734;</h1>
+
+	<table class="table_male">
+		
+		{% for  name, url in males %}
+			<tr>
+			<td>		
+				<img src={{url}} rel="icon">
+				<h2> {{name}} </h2>
+			</td>
+			</tr>
+		{% endfor %}
+		
+	</table>
+
+	<table class="table_female">
+
+		{% for  name, url in females %}
+				<tr>
+				<td>
+				
+					<img src={{url}} rel="icon">
+					<h2> {{name}} </h2>
+				</td>
+				</tr>
+		{% endfor %}
+		
+	</table>
+
+</body>

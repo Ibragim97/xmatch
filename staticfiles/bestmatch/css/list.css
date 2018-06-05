@@ -1,0 +1,42 @@
+body {
+	
+}
+
+table {
+	margin: 0px 10px 10px 10px;
+}
+th {
+	padding: 0px
+}
+
+.match th {
+	padding: 10px 0px 0px 0px;
+}
+.match td {
+	padding: 0px
+}
+
+img {
+    height: 350px;
+}
+h2 {
+	color: #058ed9;
+}
+
+.text {
+	text-align: center;
+	font-weight: bold;
+	margin: -40px 0px 0px 0px;
+	color: #ea072d;
+	font-size: 28px;
+}
+
+.top {
+	font-size: 30px;
+	float: right;
+	margin: -50px 30px 30px 200px;
+	text-align: center
+	color: #00527f;
+}
+
+

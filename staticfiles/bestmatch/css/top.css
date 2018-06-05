@@ -1,0 +1,40 @@
+.top {
+	margin: -50px 0px 0px 0px;
+}
+
+
+.table_male {
+	float: left;
+	margin: 50px 0px 0px 200px;
+	color: #00527f;
+}
+
+.table_female {
+	margin: 50px 200px 0px auto;
+	color: #ea072d;
+	
+}
+
+h1 {
+	font-color: 30px;
+	color: #ea072d;
+	text-align: center;
+
+}
+
+th {
+	font-size: 25px;
+}
+
+
+
+h2 {
+	text-align: center;
+	margin: 4px 0px 40px 0px;
+	font-size: 18px;
+}
+
+
+img {
+    height: 300;
+}

@@ -1,0 +1,56 @@
+.pagerBtn {
+	color: #18bc26;
+	width: 100px;
+	cursor: pointer;
+}
+
+#saveBtn {
+	color: #18bc26;
+	font-size: 18px;
+	font-weight: bold;
+	width: 150px;
+	border: 1px solid #576663;
+	cursor: pointer;
+}
+
+.pager p{
+	font-size: 16px;
+}
+
+#page {
+	margin: 0px 0px 0px 5px;
+	width: 30px;
+	padding: 1px 7px;
+	border: 1px black solid;
+	border-radius: 2px;
+}
+
+.section {
+	width: 45px;
+	text-align: center;
+}
+
+.credits {
+	width: 45px;
+	text-align: center;
+}
+.days {
+	width: 60px;
+	text-align: center;
+}
+.time {
+	width: 100px;
+	text-align: center;
+}
+
+table {
+	font-size: 15px;
+	margin: 0px auto;
+}
+th {
+	text-align: center;
+}
+td, th {
+	padding: 0px 3px;
+	border: 1px solid #576663;
+}

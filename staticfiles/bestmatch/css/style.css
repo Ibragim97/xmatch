@@ -1,0 +1,41 @@
+body {
+	background-color: #f8fff4;
+	font-family: "Open Sans";
+}
+
+
+.logo {
+	margin: 20px;
+	height: 20px;
+	width: 155px;
+	padding: 8px;
+	font-size: 20px;
+	border-radius: 15px;	
+}
+
+.logo h2 {
+	margin: -11px 0px 0px 0px;
+}
+
+.logo a {
+	text-decoration: none
+}
+
+.logo .symbol {
+	color: black;
+}
+
+.logo .part1 {
+
+	color: #2893ff;
+	font-family: "Open Sans";
+}
+.logo .part2 {
+	color: #ea072d;
+	font-family: "Quicksand";
+}
+
+h1 {
+	font-size: 35px;
+	color: #ea072d;
+}

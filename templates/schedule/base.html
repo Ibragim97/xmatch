@@ -1,0 +1,45 @@
+{% load staticfiles%}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ScheduleMatch</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'schedule/css/base.css' %}"/>
+	{% block styles %}
+	{% endblock %}
+
+	<!-- Fonts -->
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Droid+Serif">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Quicksand">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	{% block scripts %}
+	{% endblock %}
+
+</head>
+
+
+<body>
+
+  	<div class="logo">
+  		<a href="/">
+			<h2><span class="part1">Schedule</span><span class="glyphicon glyphicon-th"></span><span class="part2">Match</span></h2>
+		</a>
+	</div>
+
+
+	{% block content %}	
+	{% endblock %}	
+</body>
+
+{% block post-scripts %}
+{% endblock %}
+
+
+</html>
+

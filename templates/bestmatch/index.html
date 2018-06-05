@@ -1,0 +1,50 @@
+{% load static %}
+
+<head>
+  <title> BestMatch</title>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Quicksand">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
+  <link href="{% static 'bestmatch/css/style.css'%}" rel="stylesheet">
+  <link href="{% static 'bestmatch/css/index.css'%}" rel="stylesheet">
+
+</head>
+
+<body>
+    
+    <div class="logo">
+      <a href="/">
+      <h2><span class="part1"> Best</span><span class="symbol">&#9829;</span><span class="part2">Match </span></h2>
+      </a>
+    </div>
+    
+
+
+    <div>
+        <h1 class="header_text"> Who Are You? </h1>
+    </div>
+
+
+    <div id="body">
+        <center>
+        <form  id="f_form" method="post" action="{% url 'bestmatch:rating' %}">
+          {% csrf_token %}
+          <input value="F" type="hidden" name="sex">
+          
+          <button class="button" id="LeftPanel">
+            <img src="{% static 'bestmatch/images/male_icon.png' %}" rel="icon">
+          </button>
+        </form>
+
+        <form method="post" action="{% url 'bestmatch:rating' %}">
+          {% csrf_token %}
+          <input value="M" type="hidden" name="sex">
+          
+          <button class="button" id="RightPanel">
+            <img src="{% static 'bestmatch/images/female_icon.png' %}" rel="icon">
+          </button>
+        </form>
+
+        </center>
+
+    </div>
+</body>

@@ -1,0 +1,30 @@
+body {
+	font-family: "Droid Serif";	
+}
+
+
+
+.logo {
+	margin: 10px auto;
+	width: 260px;
+	text-align: center;
+}
+.logo a {
+	text-decoration: none;
+}
+
+.logo .part1 {
+	color: #18bc26;
+	font-family: "Raleway";
+
+}
+
+.logo .part2 {
+	color: #576663;
+	font-family: "Droid Serif";	
+}
+
+.logo .glyphicon.glyphicon-th {
+	font-size: 25px;
+	color: #bed8d4;
+}

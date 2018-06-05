@@ -1,0 +1,166 @@
+{% load static %}
+<style>
+    table {
+
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 30;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+        
+    }
+    th{
+        width: 30%
+    }
+
+    .form-style-4{
+        width: 450px;
+        font-size: 16px;
+        background: #495C70;
+        padding: 30px 30px 15px 30px;
+        border: 5px solid #53687E;
+    }
+    .form-style-4 input[type=submit],
+    .form-style-4 input[type=button],
+    .form-style-4 input[type=text],
+    .form-style-4 input[type=email],
+    .form-style-4 textarea,
+    .form-style-4 label
+    {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-size: 16px;
+
+    }
+    .form-style-4 label {
+        display:block;
+        margin-bottom: 10px;
+    }
+    .form-style-4 label > span{
+        display: inline-block;
+        float: left;
+        width: 150px;
+    }
+    .form-style-4 input[type=text],
+    .form-style-4 input[type=email]
+    {
+        background: transparent;
+        border: none;
+        border-bottom: 1px dashed #83A4C5;
+        width: 275px;
+        outline: none;
+        padding: 0px 0px 0px 0px;
+        font-style: italic;
+    }
+    .form-style-4 textarea{
+        font-style: italic;
+        padding: 0px 0px 0px 0px;
+        background: transparent;
+        outline: none;
+        border: none;
+        border-bottom: 1px dashed #83A4C5;
+        width: 275px;
+        overflow: hidden;
+        resize:none;
+        height:20px;
+    }
+
+    .form-style-4 textarea:focus,
+    .form-style-4 input[type=text]:focus,
+    .form-style-4 input[type=email]:focus,
+    .form-style-4 input[type=email] :focus
+    {
+        border-bottom: 1px dashed #D9FFA9;
+    }
+
+    .form-style-4 input[type=submit],
+    .form-style-4 input[type=button]{
+        background: #576E86;
+        border: none;
+        padding: 8px 10px 8px 10px;
+        border-radius: 5px;
+    }
+    .form-style-4 input[type=submit]:hover,
+    .form-style-4 input[type=button]:hover{
+    background: #394D61;
+    }
+
+</style>
+<script type="text/javascript">
+//auto expand textarea
+function adjust_textarea(h) {
+    h.style.height = "20px";
+    h.style.height = (h.scrollHeight)+"px";
+}
+</script>
+
+<head>
+    <title> BestMatch</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Quicksand">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
+
+    <link href="{% static 'bestmatch/css/style.css'%}" rel="stylesheet">
+    <link href="{% static 'bestmatch/css/list.css'%}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="logo">
+      <a href="/">
+      <h2><span class="part1"> Best</span><span class="symbol">&#9829;</span><span class="part2">Match </span></h2>
+      </a>
+    </div>
+
+    <header>
+
+        {% if text %}
+            <div class="text"> {{text}}</div>
+        {% endif %}
+
+        <a class="Top" href='/bestmatch/top'> Top-5 of NU </a>
+
+    </header>
+
+    <table>
+            
+        <th>
+            <img src={{myurl}} rel="icon">
+
+        </th>
+        <th>
+            <p>
+                Send Your original photo to <span style="color:#1776ea ">nu.bestmatch@gmail.com</span>, if You want to change it.
+            </p>
+            <p>
+                Topic: PhotoChange
+                <br>
+                To include: Student ID
+            </p>
+        </th>
+    </table>
+    <table class="match">
+        <tr>
+            <th><h1>YOUR BEST MATCH!!!</h1></th>
+            <th><h2>Your plan B</h2></th>
+            <th><h3>Why not to try?</h3></th>
+        </tr>
+        <tr>
+            <center>
+            <td>            
+                <img src={{best1_url}} rel="icon">
+                <h2>{{ best1_name }}</h2>
+            </td>
+            <td>            
+                <img src={{best2_url}} rel="icon">
+                <h2>{{ best2_name }}</h2>
+            </td>
+            <td>            
+                <img src={{best3_url}} rel="icon">
+                <h2>{{ best3_name }}</h2>
+            </td>
+            </center>
+        </tr>
+    </table>
+</body>

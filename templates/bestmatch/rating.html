@@ -1,0 +1,149 @@
+{% load static %}
+<head>
+      <meta charset="utf-8">
+      <title> BestMatch</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <!-- Bootstrap core CSS -->
+      <link href="{% static 'bestmatch/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+      <!-- Font Awesome CSS -->
+      <link href="{% static 'bestmatch/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+      <!-- Custom CSS -->
+      <link href="{% static 'bestmatch/css/bootstrap-rating.css' %}" rel="stylesheet" type="text/css">
+
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Quicksand">
+      <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
+
+      
+      
+      <link href="{% static 'bestmatch/css/style.css'%}" rel="stylesheet">
+      <link href="{% static 'bestmatch/css/rating.css'%}" rel="stylesheet">
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-5773214417538561",
+        enable_page_level_ads: true
+      });
+    </script>   
+</head>
+<body>
+    <div class="logo">
+      <a href="/">
+      <h2><span class="part1"> Best</span><span class="symbol">&#9829;</span><span class="part2">Match </span></h2>
+      </a>
+    </div>
+
+    <div>
+        <center>
+
+            <form name="photo" class="photo" method="POST" action="{% url 'bestmatch:rating' %}">
+                {% csrf_token %}
+                <input type="hidden" value={{token}} name="token"/>
+                <input type="hidden" value={{sex}} name="sex"/>
+                <input type="hidden" value={{cnt}} name="cnt"/>
+        
+
+                <div class="person">
+                  <h1 class="person_name"> {{name}} </h1>
+                  <img src={{url}} rel="icon" id="prof_img">
+                </div>
+
+                <br/>
+                <br/>
+
+                <div class="survey-builder container">
+                    
+                    
+                    <input type="hidden" class="rating" data-filled="glyphicon glyphicon-heart custom-heart" data-empty="glyphicon glyphicon-heart-empty custom-heart" data-start="0" data-stop="10" name="rating" />
+
+                    
+                </div>
+            </form>
+
+            
+
+        </center>
+
+        {%if find %}
+        <div class="footer">
+
+            <form id="search" class="form-style-4" action="{% url 'bestmatch:listPage' %}" method="POST">
+                {% csrf_token %}
+                <label for="field1">
+                    <span>Enter Your ID</span><input id="search_id" type="text" name="stud_id" required="true" />
+                </label>
+                <label>
+                    <span>&nbsp;</span><input type="submit" value="FIND YOUR BEST MATCH!" />
+                </label>
+            </form>
+        </div>
+        
+        {% else  %}
+          <center>
+          <p class="footer" style="font-weight: bold;color:#ea072d"> Оцените 5-х людей, чтобы посмотреть свои пары.</p>
+          </center>
+        {% endif%}
+
+
+    </div>
+
+    
+    <script type="text/javascript" src="{% static 'bestmatch/js/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bestmatch/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bestmatch/js/bootstrap-rating.js' %}"></script>
+
+    <script>
+      
+      $(function () {
+        $('.rating').rating('rate', '');
+
+        $('.rating').each(function () {
+        
+          $('<span class="label label-default"></span>')
+            .text($(this).val() || ' ')
+            .insertAfter(this);
+        });
+
+        $('.rating').on('change', function () {
+
+          $(this).next('.label').text($(this).val());
+          $('form[name="photo"]').submit();
+          
+        });
+
+      });
+    
+    </script>
+
+</body>
+
+
+<script type="text/javascript">
+  var valid = false;
+  
+  $("#search").submit(function(e) {
+    if(valid)
+      return true;
+
+    $.ajax({
+      url: '/bestmatch/ajax/check_id/',
+      data: {
+          'id': $('#search_id').val()
+      },
+      dataType: 'json',
+      success: function(data) {
+        if(data.notValid)
+          alert(data.notValid);
+
+        if(data.valid) {
+          valid = true;
+          $("#search").submit();
+        }
+      }
+
+    });
+    return false;
+  });
+
+</script>

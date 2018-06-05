@@ -1,0 +1,140 @@
+{% extends 'schedule/base.html' %}
+{% load staticfiles %}
+
+
+{% block styles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'schedule/css/index.css' %}"/>
+{% endblock %}
+
+{% block scripts %}
+    <!-- JQuery for autocomplete -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			for(i = 1; i <= 6; i++) {
+				$('#id_sub_abbr_' + i).addClass("form-control");
+				$('#id_sub_title_' + i).addClass("form-control");
+				$('#id_sub_credits_' + i).addClass("form-control");
+
+				$('#id_sub_abbr_' + i).addClass("abbr");
+				$('#id_sub_title_' + i).addClass("title");
+
+				id = '#id_sub_credits_' + i
+				$(id).addClass("credits");
+			}
+		}); 
+	</script>
+{% endblock%}
+
+{% block content %}
+
+	<p class="titleText"> Choose subjects </p>
+
+	<form action="" method="post">
+		{% csrf_token %}
+		<table>
+		<tr>
+			<th> Abbr </th>
+			<th> Title </th>
+			<th> Cr(US) </th>
+		</tr>
+		<tr>
+			{% for field in form.group1 %}
+				<td> {{ field }} </td>
+			{% endfor %}
+		</tr>
+		<tr>
+			{% for field in form.group2 %}
+				<td> {{ field }} </td>
+			{% endfor %}
+		</tr>
+		<tr>
+			{% for field in form.group3 %}
+				<td> {{ field }} </td>
+			{% endfor %}
+		</tr>
+		<tr>
+			{% for field in form.group4 %}
+				<td> {{ field }} </td>
+			{% endfor %}
+		</tr>
+		<tr>
+			{% for field in form.group5 %}
+				<td> {{ field }} </td>
+			{% endfor %}
+		</tr>
+		<tr>
+			{% for field in form.group6 %}
+				<td> {{ field }} </td>
+			{% endfor %}
+		</tr>		
+		
+		</table>
+		<table>
+				{% for field in form %}
+			<tr> <td>{{field.errors}} </td> </tr>
+		{% endfor %}				
+		</table>
+
+		<center>
+			<button type="submit"> Generate </button>
+		</center>
+	</form>
+	<center><p> Data was modified: {{date}}</p></center>
+	<div id="example1"></div>
+{% endblock%}
+
+{% block post-scripts %}
+	<script>
+		var abbrs = []
+		var titles = []
+		var credits = []
+
+		$(function() {
+			$.ajax({
+				url: '/schedule/ajax/get_subjects/', 
+				data: {}, 
+				dataType: 'json',
+				success: function(data) {
+					if(data.subjects) {
+						subjects = data["subjects"];
+
+						for (sub in subjects) {
+							abbrs.push(subjects[sub][0])
+							titles.push(subjects[sub][1])
+							credits.push(subjects[sub][2])
+						}
+						
+						for(i = 1; i <= 6; i++) {
+							$('#id_sub_abbr_' + i).autocomplete({
+								source: abbrs,
+								select: function(data, value) {
+									id = data.target.id.slice(-1)									
+									value = value.item.value
+									ind = abbrs.indexOf(value);
+									$('#id_sub_title_' + id).val(titles[ind]);
+									$('#id_sub_credits_' + id).val(credits[ind]);
+								},
+							});
+
+							$('#id_sub_title_' + i).autocomplete({
+								source: titles,
+								select: function(data, value) {
+									id = data.target.id.slice(-1)									
+									value = value.item.value
+									ind = titles.indexOf(value);
+									$('#id_sub_abbr_' + id).val(abbrs[ind]);
+									$('#id_sub_credits_' + id).val(credits[ind]);
+								},
+								
+							});
+						}
+                	}
+				}
+			});
+		});
+
+	</script>
+{% endblock %}

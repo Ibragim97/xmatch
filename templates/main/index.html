@@ -1,0 +1,72 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BestMatch</title>
+
+
+	<meta property="og:image" content="http://www.nu-bestmatch.com/static/images/logo.png" />
+	<meta property="og:title" content="BestMatch" />
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
+	<link href="{% static 'main/css/index.css'%}" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Droid+Serif">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Quicksand">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans">
+
+    <!-- google ads -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-5773214417538561",
+        enable_page_level_ads: true
+      });
+    </script>   
+
+
+</head>
+<body>
+
+	<center>
+		<img class="logo" src="{% static 'images/logo2.png'%}"/>
+	</center>
+	<table>
+	<tr>
+		<td>
+		<div class="app3">
+		  	<div class="logoFood">
+		  		<a>
+					<span><span class="part1">Food</span><span class="symbol">&#9832;</span><span class="part2">Match</span></span>
+				</a>
+				<p> Coming soon...</p>
+			</div>
+		</div>
+		</td>
+		<td>
+		<div class="app1">
+		  	<div class="logoSchedule">
+		  		<a href="/schedule">
+					<span><span class="part1">Schedule</span><span class="glyphicon glyphicon-th"></span><span class="part2">Match</span></span>
+				</a>
+			</div>
+		</div>
+		</td>
+		<td>
+		<div class="app2">
+			<div class="logoBestMatch">
+		      <a href="/bestmatch">
+		      <span><span class="part1"> Best</span><span class="symbol">&#9829;</span><span class="part2">Match </span></span>
+		      </a>
+		    </div>
+		 </div>
+		 </td>
+	</tr>
+	</table>
+
+
+</body>
+</html>
